@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import { Poppins } from 'next/font/google';
 import Header from './components/Header';
-import { CartContextProvider } from './components/CartContext';
+import { CartContextProvider } from '../lib/CartContext';
 
 const inter = Poppins({
   subsets: ['latin'],

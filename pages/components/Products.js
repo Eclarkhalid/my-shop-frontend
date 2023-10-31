@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../../lib/CartContext";
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-export default function Products({ products}) {
+export default function Products({ products }) {
   const { addProduct } = useContext(CartContext)
   return (
     <div className="bg-white">
@@ -34,7 +34,7 @@ export default function Products({ products}) {
                   </div>
 
                   <div className="relative  p-3 border-t">
-                    <Link href={ '/'}>
+                    <Link href={'/'}>
                       <h3
                         className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate"
                       >

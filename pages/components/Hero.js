@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../../lib/CartContext";
 
 export default function Hero({ product }) {
-  const {addProduct} = useContext(CartContext);
+  const { addProduct } = useContext(CartContext);
   function addItemToCart() {
     addProduct(product._id);
   }
@@ -13,7 +13,7 @@ export default function Hero({ product }) {
         <div className="lg:py-40 min-h-[650px]">
           <div className="relative mx-auto sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-xl text-start">
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl lg:hidden max-md:mb-6 font-bold tracking-tight text-primary">
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl lg:hidden max-md:mb-6 font-bold tracking-tight text-primary">
                 At <span className="text-accent">50%</span> Off
               </h1>
               <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-text">

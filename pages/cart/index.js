@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { CartContext } from "../components/CartContext"
+import { CartContext } from "../../lib/CartContext"
 import axios from "axios";
 import Link from "next/link";
 
