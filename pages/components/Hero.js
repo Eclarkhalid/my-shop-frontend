@@ -9,7 +9,7 @@ export default function Hero({ product }) {
   }
   if (product) {
     return (
-      <div className="relative overflow-hidden bg-background my-10">
+      <div className="relative overflow-hidden bg-background my-14 md:my-10">
         <div className="lg:py-40 min-h-[650px]">
           <div className="relative mx-auto sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-xl text-start">
