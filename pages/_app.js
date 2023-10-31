@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
     <CartContextProvider>
       <main className={`${inter.className} min-h-screen max-w-screen-2xl mx-auto bg-background sm:px-6`}>
         <Header />
-        <Component {...pageProps} />
+        <Component {...pageProps} className="sm:mt-36" />
       </main>
     </CartContextProvider>
   </>

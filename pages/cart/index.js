@@ -52,9 +52,9 @@ export default function Cart() {
 
   return <>
 
-    <section className="flex justify-between max-md:flex-col items-center">
-      <div className=" lg:w-2/3  px-4 py-8 sm:px-6 sm:py-6">
-        <div className=" ">
+    <section className="flex justify-between max-md:flex-col items-center ">
+      <div className=" lg:w-2/3  px-4">
+        <div className=" pl-4 mt-16 md:mt-6 ">
           <header className="text-center flex justify-between w-full">
             <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
           </header>
@@ -151,7 +151,7 @@ export default function Cart() {
                     <div className="flex justify-end">
                       <Link
                         href="#"
-                        className="block rounded bg-gray-700 px-5 py-3 text-md text-gray-100 transition hover:bg-gray-600"
+                        className="disabled block rounded bg-gray-700 px-5 py-3 text-md text-gray-100 transition hover:bg-gray-600"
                       >
                         Checkout
                       </Link>
