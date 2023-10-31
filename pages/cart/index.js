@@ -48,7 +48,7 @@ export default function Cart() {
   return <>
 
     <section className="flex justify-between max-md:flex-col items-center">
-      <div className=" w-2/3  px-4 py-8 sm:px-6 sm:py-12">
+      <div className=" lg:w-2/3  px-4 py-8 sm:px-6 sm:py-6">
         <div className=" ">
           <header className="text-center flex justify-between w-full">
             <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
