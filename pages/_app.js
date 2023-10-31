@@ -11,7 +11,7 @@ const inter = Poppins({
 export default function App({ Component, pageProps }) {
   return <>
     <CartContextProvider>
-      <main className={`${inter.className} min-h-screen max-w-screen-2xl mx-auto bg-background`}>
+      <main className={`${inter.className} min-h-screen max-w-screen-2xl mx-auto bg-background sm:px-6`}>
         <Header />
         <Component {...pageProps} />
       </main>
