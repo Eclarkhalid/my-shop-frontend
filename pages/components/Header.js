@@ -2,13 +2,15 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../lib/CartContext";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
   const { cartProducts } = useContext(CartContext)
   const router = useRouter();
-  const {pathname} = router;
+  const { pathname } = router;
+  const { data: session } = useSession()
 
   useEffect(() => {
     // Update the currentPath state on client side
@@ -61,23 +63,33 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <div className="sm:flex sm:gap-2 border-r border-primary pr-4">
-              <Link
-                className=" text-md font-medium text-text hidden md:flex"
-                href="/"
-              >
-                Account
-              </Link>
-              <Link
-                className=" text-md font-medium text-text hidden max-md:flex md:hidden"
-                href="/"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
 
-              </Link>
-            </div>
+            {session ? (
+              <div className="sm:flex sm:gap-2 border-r border-primary pr-4">
+                <div class="h-9 w-9">
+                  <img class="h-full w-full rounded-full object-cover object-center" src={session.user.image} alt={session.user.email} />
+                </div>
+              </div>
+            ) : (
+              <div className="sm:flex sm:gap-2 border-r border-primary pr-4">
+                <Link
+                  className=" text-md font-medium text-text hidden md:flex"
+                  href="/"
+                >
+                  Account
+                </Link>
+                <Link
+                  className=" text-md font-medium text-text hidden max-md:flex md:hidden"
+                  href="/"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+
+                </Link>
+              </div>
+            )}
+
             <div className="ml-4 flow-root lg:ml-4">
               <Link href="/cart" className="group -m-2 flex items-center p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -132,7 +144,7 @@ export default function Header() {
             </div>
 
             {isMobileNavOpen && (
-              <div className="md:hidden absolute top-20 right-0 bg-white border border-zinc-200 rounded shadow-lg p-6 text-lg">
+              <div className="md:hidden absolute top-24 right-0 bg-white border border-zinc-200 rounded shadow-lg p-6 text-lg ">
                 <nav aria-label="Global">
                   <ul className="flex flex-col items-start gap-6 text-md">
                     <li>
@@ -158,6 +170,12 @@ export default function Header() {
                       </select>
                     </li>
 
+                    <li>
+                    {session && (
+                      <button onClick={() => signOut()}>logout</button>
+                    )}
+                    </li>
+
 
                   </ul>
                 </nav>
@@ -170,7 +188,7 @@ export default function Header() {
     </header>
 
     <header className="md:hidden w-full flex justify-around items-center my-3 border-b fixed top-12 bg-gray-200 z-50">
-      <div className="inline-flex rounded-lg border border-gray-100 gap-8 p-1">
+      <div className="inline-flex gap-8 p-1">
         <Link
           href={'/'}
           className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-md text-accent hover:text-gray-700 focus:relative ${pathname === ('/') ? 'text-primary' : ""} `}
