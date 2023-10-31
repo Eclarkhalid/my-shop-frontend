@@ -39,8 +39,8 @@ export default function Hero({ product }) {
                   <Link href="#" className="mt-6 inline-block rounded-md border border-transparent bg-primary px-6 py-3 text-center font-medium text-white hover:text-accent" onClick={addItemToCart}>
                     Add to cart
                   </Link>
-                  <Link href="#" className="mt-6 inline-block rounded-md  bg-transparent border border-accent px-6 py-3 text-center font-medium text-accent hover:text-primary hover:border-primary">
-                    View Product
+                  <Link href="/products" className="mt-6 inline-block rounded-md  bg-transparent border border-accent px-6 py-3 text-center font-medium text-accent hover:text-primary hover:border-primary">
+                    All Products
                   </Link>
                 </div>
               </div>

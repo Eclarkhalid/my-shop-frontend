@@ -28,7 +28,7 @@ export async function getServerSideProps() {
 
   const featuredProduct = await Product.findById(featuredId);
   const collectionProduct1 = await Product.findById(collectionId);
-  const newProducts = await Product.find({}, null, {sort: {'_id': 1}, limit: 10})
+  const newProducts = await Product.find({}, null, {sort: {'_id': 1}, limit: 5})
   const allProducts = await Product.find({}, null, {sort: {'_id': 1}})
 
   return {
