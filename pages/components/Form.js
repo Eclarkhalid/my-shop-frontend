@@ -36,7 +36,7 @@ export default function Form() {
             <div class="col-span-12 text-center">
               <Link
                 href="#"
-                className="disabled block rounded bg-gray-700 px-5 py-3 text-md text-gray-100 transition hover:bg-gray-600"
+                className="disabled block rounded bg-secondary px-5 py-3 text-md text-text transition hover:bg-purple-300"
               >
                 Checkout
               </Link>

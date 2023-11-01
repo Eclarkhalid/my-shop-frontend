@@ -56,7 +56,7 @@ export default function Cart() {
   if (session) {
     return <>
 
-      <section className="flex justify-between max-md:flex-col items-center space-x-6 ">
+      <section className="flex justify-between max-md:flex-col items-center md:space-x-6 ">
         <div className=" md:w-2/3  px-4">
           <div className=" pl-4 mt-16 md:mt-6 ">
             <header className="text-center flex justify-between w-full">
@@ -82,7 +82,7 @@ export default function Cart() {
                           />
 
                           <div>
-                            <h3 className="text-md text-gray-900">{product.title}</h3>
+                            <h3 className="text-md text-text max-w-md">{product.title}</h3>
 
                             <dl className="mt-0.5 space-y-px text-[10px] text-text">
                               <p>ksh .{cartProducts.filter(id => id === product._id).length * product.price}</p>
@@ -129,7 +129,7 @@ export default function Cart() {
                   }
 
                   <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
-                    <div className="w-screen max-w-lg space-y-4">
+                    <div className=" max-w-md space-y-4">
                       <dl className="space-y-0.5 text-md text-gray-700">
                         <div className="flex justify-end text-red-400 border-b mb-3">
                           <button onClick={deleteCart}>Clear Cart</button>

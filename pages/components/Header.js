@@ -25,7 +25,7 @@ export default function Header() {
   const inActive = 'p-2'
 
   return <>
-    <header className="bg-white sticky top-0 z-40 w-full max-md:px-2 px-4">
+    <header className="bg-white sticky top-0 z-40 w-full px-2 md:px-4">
       <div
         className="mx-auto flex h-16 max-w-screen-2xl items-center gap-8 border-b border-primary border-opacity-40"
       >
@@ -105,7 +105,7 @@ export default function Header() {
             </div>
 
             {/* Mobile navigation button */}
-            <div className="block md:hidden">
+            <div className="block mr-0 md:hidden">
               <button
                 onClick={toggleMobileNav}
                 className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
