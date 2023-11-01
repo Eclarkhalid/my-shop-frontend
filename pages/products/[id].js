@@ -3,6 +3,10 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { useContext } from "react";
 
+const formatPrice = (price) => {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export default function ProductPage({ product }) {
   const { addProduct } = useContext(CartContext)
   if (product) {
@@ -42,15 +46,48 @@ export default function ProductPage({ product }) {
 
             <div className="mt-6">
               <h2 className="text-xl font-semibold text-gray-900">Details</h2>
-              <ul className="mt-2 text-gray-700 list-disc list-inside">
-                {/* {product.details.map((detail, index) => (
-                  <li key={index}>{detail}</li>
-                ))} */}
-              </ul>
+              <p className="mt-2 text-gray-700 list-disc list-inside">
+                {product?.details}
+              </p>
             </div>
-            <p className="text-2xl font-semibold text-primary mt-2">
-              ${product.price}
-            </p>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 my-3">
+              <div>
+                <label className="text-text font-semibold">Brand</label>
+                <p className="mt-2 text-accent list-disc list-inside">
+                  {product?.brand}
+                </p>
+              </div>
+
+              <div>
+                <label className="text-text font-semibold">Gender</label>
+                <p className="mt-2 text-accent list-disc list-inside">
+                  {product?.gender}
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 my-3">
+              <div>
+                <label className="text-text font-semibold">Sizes</label>
+                <p className="mt-2 text-accent list-disc list-inside">
+                  {product?.sizes}
+                </p>
+              </div>
+
+              <div>
+                <label className="text-text font-semibold">Colors</label>
+                <p className="mt-2 text-accent list-disc list-inside">
+                  {product?.colors}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-4 flex justify-between items-center">
+              <h2 className="text-xl font-semibold text-gray-900">Price</h2>
+              <p className="mt-2 text-primary font-semibold text-lg">
+                Ksh {formatPrice(product.price)}
+              </p>
+            </div>
             <div className="w-full">
               <button
                 className="bg-primary text-white py-2 px-4 mt-4 rounded-md hover:bg-primary-dark w-full"
