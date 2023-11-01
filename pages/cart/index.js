@@ -56,7 +56,7 @@ export default function Cart() {
   if (session) {
     return <>
 
-      <section className="flex justify-between max-md:flex-col items-center md:space-x-6 ">
+      <section className="flex justify-between max-md:flex-col items-center space-x-6 ">
         <div className=" md:w-2/3  px-4">
           <div className=" pl-4 mt-16 md:mt-6 ">
             <header className="text-center flex justify-between w-full">
