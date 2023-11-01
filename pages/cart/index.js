@@ -56,9 +56,9 @@ export default function Cart() {
   if (session) {
     return <>
 
-      <section className="flex justify-between max-md:flex-col items-center space-x-6 ">
+      <section className="flex justify-between max-md:flex-col items-center space-x-4 ">
         <div className=" md:w-2/3  px-4">
-          <div className=" pl-4 mt-16 md:mt-6 ">
+          <div className=" mt-16 md:mt-6 ">
             <header className="text-center flex justify-between w-full">
               <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
             </header>
