@@ -35,7 +35,7 @@ export default function Collection({ product }) {
                   </header>
 
                   <Link
-                    href="#"
+                    href="/products"
                     className="inline-block px-12 py-3 mt-8 text-md font-medium text-text transition  border border-accent rounded hover:text-primary duration-75 hover:border-primary focus:outline-none focus:ring"
                   >
                     Shop All
@@ -46,23 +46,23 @@ export default function Collection({ product }) {
               <div className="lg:col-span-2 lg:py-8">
                 <ul className="grid grid-cols-2 gap-4">
                   <li>
-                    <Link href="#" className="block group">
+                    <div className="block group">
                       <img
                         src={product.images[0]}
                         alt=""
                         className="object-cover w-full rounded aspect-square"
                       />
-                    </Link>
+                    </div>
                   </li>
 
                   <li>
-                    <Link href="#" className="block group">
+                    <div  className="block group">
                       <img
                         src={product.images[1]}
                         alt=""
                         className="object-cover w-full rounded aspect-square"
                       />
-                    </Link>
+                    </div>
                   </li>
                 </ul>
               </div>
