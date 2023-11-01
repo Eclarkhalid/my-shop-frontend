@@ -34,7 +34,7 @@ export default function Products({ products }) {
                   </div>
 
                   <div className="relative  p-3 border-t">
-                    <Link href={'/'}>
+                    <Link href={'/products/' + product._id}>
                       <h3
                         className="text-md text-gray-700 group-hover:underline group-hover:underline-offset-4 truncate"
                       >
