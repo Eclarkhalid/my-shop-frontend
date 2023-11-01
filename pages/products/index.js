@@ -30,7 +30,7 @@ export default function Products({ allProducts }) {
           {allProducts.map((product) => (
             <div key={product._id}>
               <div className="group block overflow-hidden border border-accent rounded-xl border-opacity-10">
-                <div className="p-1">
+                <div className="">
                   <div className="relative md:h-[300px] h-[200px]">
                     <img
                       src={product.images[0]}

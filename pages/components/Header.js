@@ -21,6 +21,9 @@ export default function Header() {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
+  const active = 'p-2 text-primary bg-secondary rounded-lg'
+  const inActive = 'p-2'
+
   return <>
     <header className="bg-white sticky top-0 z-40 w-full max-md:px-2 px-4">
       <div
@@ -148,7 +151,7 @@ export default function Header() {
                 <nav aria-label="Global">
                   <ul className="flex flex-col items-start gap-6 text-md">
                     <li>
-                      <Link className={`text-accent transition hover:text-accent/75`} href="/"
+                      <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/' ? active : inActive} `} href="/"
                         onClick={toggleMobileNav}
                       >
                         Home
@@ -156,7 +159,7 @@ export default function Header() {
                     </li>
 
                     <li>
-                      <Link className={`text-accent transition hover:text-accent/75`} href="/products"
+                      <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/products' ? active : inActive}`} href="/products"
                         onClick={toggleMobileNav}
                       >
                         All Products
@@ -164,16 +167,17 @@ export default function Header() {
                     </li>
 
                     <li>
-                      <select className={`text-accent transition hover:text-accent/75`}>
-                        <option value="0">Categories</option>
-                        <option value="1">Shoes</option>
-                      </select>
+                      <Link className={`text-accent transition hover:text-accent/75 ${pathname === '/categories' ? active : inActive}`} href="/categories"
+                        onClick={toggleMobileNav}
+                      >
+                        Categories
+                      </Link>
                     </li>
 
                     <li>
-                    {session && (
-                      <button onClick={() => signOut()}>logout</button>
-                    )}
+                      {session && (
+                        <button onClick={() => signOut()}>logout</button>
+                      )}
                     </li>
 
 
