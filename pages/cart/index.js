@@ -72,7 +72,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      email, name, address, country, zip, city, cartProducts
+      email:session.user.email, name:session.user.name, address, country, zip, city, cartProducts
     });
 
     if (response.data.url) {
@@ -89,7 +89,7 @@ export default function Cart() {
   if (session) {
     return <>
 
-      <section className="flex justify-between max-md:flex-col items-center space-x-4 ">
+      <section className="flex justify-between max-md:flex-col space-x-4 ">
         <div className=" md:w-2/3  px-4">
           <div className=" mt-16 md:mt-6 ">
             <header className="text-center flex justify-between w-full">
@@ -233,16 +233,14 @@ export default function Cart() {
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">Email</label>
-                    <input type="email" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={email}
-                      onChange={ev => setEmail(ev.target.value)}
+                    <input type="email" name="email" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={session.user.email}
                       placeholder='Email'
                     />
 
                   </div>
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">Full Name</label>
-                    <input type="text" name="name" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={name}
-                      onChange={ev => setName(ev.target.value)}
+                    <input type="text" name="name" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" value={session.user.name}
                       placeholder='Full name'
                     />
                   </div>
