@@ -233,7 +233,7 @@ export default function Cart() {
               <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Shipping details</h1>
               <p className="mt-2 text-text text-lg">We use your account details for shipping.</p>
             </header>
-            <form class="mx-auto max-w-xl p-4 border shadow-xl h-[400px] my-3">
+            <div class="mx-auto max-w-xl p-4 border shadow-xl h-[400px] my-3">
               <div class="space-y-5">
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
@@ -284,7 +284,6 @@ export default function Cart() {
                   <div class="col-span-12 text-center w-full">
                     <button
                       onClick={stripeCheckout}
-                      type="submit"
                       className="disabled block rounded bg-secondary px-5 py-3 text-md text-text transition hover:bg-purple-300 w-full"
                     >
                       Checkout
@@ -292,7 +291,7 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
 
           </div>
         )}
