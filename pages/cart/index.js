@@ -5,6 +5,7 @@ import Link from "next/link";
 import Spinner from "../components/Spinner";
 import { signIn, signOut, useSession } from "next-auth/react"
 import Success from "../components/Success";
+import toast from "react-hot-toast";
 
 export default function Cart() {
   const { cartProducts, removeProduct, addProduct, clearCart } = useContext(CartContext);
@@ -61,9 +62,11 @@ export default function Cart() {
 
   function decreaseProduct(id) {
     removeProduct(id);
+    toast.success('Removed product!!')
   }
   function deleteCart(id) {
     clearCart();
+    toast.success('Cart cleared!!')
   }
 
   const formatPrice = (price) => {
@@ -77,6 +80,8 @@ export default function Cart() {
 
     if (response.data.url) {
       window.location = response.data.url
+    } else {
+      toast.error('An error occured!!')
     }
   }
 
@@ -228,7 +233,7 @@ export default function Cart() {
               <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Shipping details</h1>
               <p className="mt-2 text-text text-lg">We use your account details for shipping.</p>
             </header>
-            <div class="mx-auto max-w-xl p-4 border shadow-xl h-[400px] my-3">
+            <form class="mx-auto max-w-xl p-4 border shadow-xl h-[400px] my-3">
               <div class="space-y-5">
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-6">
@@ -249,6 +254,7 @@ export default function Cart() {
                     <input type="text" name="address" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder="1864 Main Street"
                       value={address}
                       onChange={ev => setAddress(ev.target.value)}
+                    required
                     />
                   </div>
                   <div class="col-span-6">
@@ -256,6 +262,7 @@ export default function Cart() {
                     <input type="text" name="city" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={city}
                       onChange={ev => setCity(ev.target.value)}
+                    required
                     />
                   </div>
                   <div class="col-span-4">
@@ -263,6 +270,7 @@ export default function Cart() {
                     <input type="text" name="state" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={country}
                       onChange={ev => setCountry(ev.target.value)}
+                    required
                     />
                   </div>
                   <div class="col-span-2">
@@ -270,11 +278,13 @@ export default function Cart() {
                     <input type="text" name="zip" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={zip}
                       onChange={ev => setZip(ev.target.value)}
+                    required
                     />
                   </div>
                   <div class="col-span-12 text-center w-full">
                     <button
                       onClick={stripeCheckout}
+                      type="submit"
                       className="disabled block rounded bg-secondary px-5 py-3 text-md text-text transition hover:bg-purple-300 w-full"
                     >
                       Checkout
@@ -282,7 +292,7 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
 
           </div>
         )}

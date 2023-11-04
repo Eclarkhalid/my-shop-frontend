@@ -4,6 +4,7 @@ import { Product } from "@/models/Product";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
+import toast from "react-hot-toast";
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -56,7 +57,7 @@ export default function Products({ allProducts }) {
 
                       <div class="col-span-12 text-center w-full mt-3">
                         <button
-                          onClick={() => addProduct(product._id)}
+                          onClick={() => {addProduct(product._id); toast.success('Item added to cart!')}}
                           className="disabled block rounded bg-secondary px-5 py-3 text-md text-text w-full transition hover:bg-purple-300"
                         >
                           Add to cart

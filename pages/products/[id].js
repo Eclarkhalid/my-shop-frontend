@@ -2,6 +2,7 @@ import { CartContext } from "@/lib/CartContext";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -91,7 +92,8 @@ export default function ProductPage({ product }) {
             <div className="w-full">
               <button
                 className="bg-primary text-white py-2 px-4 mt-4 rounded-md hover:bg-primary-dark w-full"
-                onClick={() => addProduct(product._id)}
+                onClick={() => {addProduct(product._id);
+                  toast.success('Item added to cart!!')}}
               >
                 Add to Cart
               </button>
