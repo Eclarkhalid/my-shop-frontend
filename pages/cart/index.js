@@ -256,6 +256,7 @@ export default function Cart() {
                       onChange={ev => setAddress(ev.target.value)}
                     required
                     />
+                    
                   </div>
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">City</label>
