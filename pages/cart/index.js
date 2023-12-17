@@ -75,7 +75,7 @@ export default function Cart() {
 
   async function stripeCheckout() {
     const response = await axios.post('/api/checkout', {
-      email:session.user.email, name:session.user.name, address, country, zip, city, cartProducts
+      email: session.user.email, name: session.user.name, address, country, zip, city, cartProducts
     });
 
     if (response.data.url) {
@@ -254,16 +254,16 @@ export default function Cart() {
                     <input type="text" name="address" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder="1864 Main Street"
                       value={address}
                       onChange={ev => setAddress(ev.target.value)}
-                    required
+                      required
                     />
-                    
+
                   </div>
                   <div class="col-span-6">
                     <label class="mb-1 block text-sm font-medium text-text">City</label>
                     <input type="text" name="city" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={city}
                       onChange={ev => setCity(ev.target.value)}
-                    required
+                      required
                     />
                   </div>
                   <div class="col-span-4">
@@ -271,7 +271,7 @@ export default function Cart() {
                     <input type="text" name="state" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={country}
                       onChange={ev => setCountry(ev.target.value)}
-                    required
+                      required
                     />
                   </div>
                   <div class="col-span-2">
@@ -279,7 +279,7 @@ export default function Cart() {
                     <input type="text" name="zip" class="block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" placeholder=""
                       value={zip}
                       onChange={ev => setZip(ev.target.value)}
-                    required
+                      required
                     />
                   </div>
                   <div class="col-span-12 text-center w-full">
