@@ -36,7 +36,7 @@ export async function getServerSideProps() {
       featuredProduct: JSON.parse(JSON.stringify(featuredProduct)),
       collectionProduct1: JSON.parse(JSON.stringify(collectionProduct1)),
       newProducts: JSON.parse(JSON.stringify(newProducts)),
-      allProducts: JSON.parse(JSON.stringify(allProducts))
+      allProducts: JSON.parse(JSON.stringify(allProducts)),
     }
   }
 }
